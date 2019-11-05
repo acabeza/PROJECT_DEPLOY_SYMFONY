@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+        {% block head %}
+            <title>Welcome!</title>
+            <link rel="stylesheet" type="text/css" href="{{ asset('css/index.css') }}"/>
+        {% endblock %}
+
+{% block body %}
+    <div class="container">
+            <h2> Usuarios</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nombre</th><th>Apellidos</th><th>CP</th><th>Ciudad</th><th>Email</th><th>Referencia Productos</th><th>Mostrar</th><th>Editar</th><th>Eliminar</th>
+                    </tr>
+                </thead>
+                for
+            </table>
+            <h2> Productos </h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nombre del Productos</th><th>Referencia de Productos</th><th>Mostrar</th><th>Editar</th><th>Eliminar</th>
+                    </tr>
+                </thead>
+            </table> 
+    </div>
+{% endblock %}

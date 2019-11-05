@@ -1,0 +1,3 @@
+#index:
+#    path: /
+#    controller: App\templates\index.base.twig::index
