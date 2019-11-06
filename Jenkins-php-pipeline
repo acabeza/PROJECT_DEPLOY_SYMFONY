@@ -3,9 +3,10 @@ pipeline {
     stages {
         stage('TEST') {
            steps {
-                "composer install ./vendor/bin/phpunit ./test"
+                composer install "./vendor/bin/phpunit ./test"
            }
         }
+        stage
 
         stage('STAGE 2')
             steps{
