@@ -5,7 +5,8 @@ pipeline {
                 args "--volume /tmp:/app --volume /etc/passwd:/etc/passwd:ro --volume /etc/group:/etc/group:ro -u 1000"
                     } 
             } 
-    stage('Prepare') {
+    stages('Prepare') {
+        stage{
             steps {
                 sh 'rm -rf app/build/api'
                 sh 'rm -rf app/build/code-browser'
@@ -23,6 +24,7 @@ pipeline {
                 sh 'php composer.phar install --prefer-dist --no-progress'
             }
         }
+    }
         stage('PHP Syntax check') {
             steps {
                 sh 'bin/parallel-lint src/'
