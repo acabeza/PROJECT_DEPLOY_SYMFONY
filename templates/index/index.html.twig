@@ -10,18 +10,49 @@
             <table>
                 <thead>
                     <tr>
-                        <th>Nombre</th><th>Apellidos</th><th>CP</th><th>Ciudad</th><th>Email</th><th>Referencia Productos</th><th>Mostrar</th><th>Editar</th><th>Eliminar</th>
+                        <th>ID</th><th>NOMBRE</th><th>APELLIDOS</th><th>CP</th><th>CIUDAD</th><th>EMAIL</th><th>REFERENCIA DEL PRODUCTO</th><th>MOSTRAR</th><th>EDITAR</th><th>Eliminar</th>
                     </tr>
                 </thead>
-                for
+                {% for user in users %}
+            <tr>
+                <td>{{ user.id }}</td>
+                <td>{{ user.name }}</td>
+                <td>{{ user.surname }}</td>              
+                <td>{{ user.cp }}</td>
+                <td>{{ user.city }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.refProduct }}</td>
+                <td><a href="{{ path('users_show', {'id': user.id}) }}" class="ico_link">&#128065;</a></td>
+                <td><a href="{{ path('users_edit', {'id': user.id}) }}" class="ico_link">&#128393;</a></td>
+                <td><a href="{{ path('users_delete', {'id': user.id}) }}" class="ico_link">&#10008;</a></td>
+            </tr>
+            {% else %}
+                <tr>
+                    <td colspan="10">No se ha encontrado usuarios</td>
+                </tr>
+            {% endfor %}
             </table>
             <h2> Productos </h2>
             <table>
                 <thead>
                     <tr>
-                        <th>Nombre del Productos</th><th>Referencia de Productos</th><th>Mostrar</th><th>Editar</th><th>Eliminar</th>
+                        <th>ID<th>NOMBRE DEL PRODUCTO</th><th>REFERENCIA DEL PRODUCTO</th><th>MOSTRAR</th><th>EDITAR</th><th>ELIMINAR</th>
                     </tr>
                 </thead>
+                {% for product in products %}
+                <tr>
+                <td>{{ product.id }}</td>
+                <td>{{ product.nameProduct }}</td>
+                <td>{{ product.refproduct }}</td>              
+                <td><a href="{{ path('product_show', {'id': product.id}) }}" class="ico_link">&#128065;</a></td>
+                <td><a href="{{ path('product_edit', {'id': product.id}) }}" class="ico_link">&#128393;</a></td>
+                <td><a href="{{ path('product_delete', {'id': product.id}) }}" class="ico_link">&#10008;</a></td>
+                </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="6">No se ha encontrado productos </td>
+                    </tr>
+                {% endfor %}
             </table> 
     </div>
 {% endblock %}

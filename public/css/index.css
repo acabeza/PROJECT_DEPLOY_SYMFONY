@@ -19,28 +19,33 @@ svg {
 
 .container {
   position: relative;
-  top: 150px;
-  left: 20%;
+  top: auto;
+  left: 2.5%;
   display: block;
   margin-bottom: 80px;
-  width: 1000px;
-  height: 1000px;
+  width: auto;
+  height: auto;
   border-radius: 5px;
   overflow: hidden;
   z-index: 1;
-  border: #414141 1px solid;
 }
-th{
+th,table,td{
   align-content: center;
-  padding-left: 2%;
-  padding-right: 2%;
+  text-align: center;
+  font-size:15px;
+  border:2px solid black;
 }
+
+th,td{padding-left:10px;
+      padding-right:10px;      
+}
+table{background:burlywood;}
 
 h2 {
   padding: 40px;
   font-weight: lighter;
   text-transform: uppercase;
-  color: #414141;
+  color: #1a1919;
 }
 
 input {
@@ -168,3 +173,5 @@ h3 {
   -webkit-transition: .3s ease-in-out 1.2s;
   transition: .3s ease-in-out 1.2s;
 }
+
+.ico_link { font-size: 20px;}
