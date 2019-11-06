@@ -7,6 +7,11 @@ pipeline {
                 "composer install ./vendor/bin/phpunit ./test"
            }
         }
+
+        stage('STAGE 2')
+            steps{
+                echo "Hellooooo"
+            }
     }
 
 }
