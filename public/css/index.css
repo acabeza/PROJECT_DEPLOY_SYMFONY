@@ -175,3 +175,12 @@ h3 {
 }
 
 .ico_link { font-size: 20px;}
+
+.add {border: 2px solid black;
+  background-color: cadetblue;
+      text-align: center;
+      padding-left: 12px;
+      padding-right: 13px;
+      width: auto;
+      top:auto;
+      font-size: 30px;}

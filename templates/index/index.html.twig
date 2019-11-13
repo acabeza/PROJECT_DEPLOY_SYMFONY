@@ -32,6 +32,8 @@
                 </tr>
             {% endfor %}
             </table>
+            <span class="add"><a href="{{ path('users_new')}}">+</a></span>
+            
             <h2> Productos </h2>
             <table>
                 <thead>
@@ -54,5 +56,6 @@
                     </tr>
                 {% endfor %}
             </table> 
+            <span class="add"><a href="{{ path('product_new')}}">+</a></span>
     </div>
 {% endblock %}
