@@ -17,7 +17,7 @@ class IndexController extends AbstractController
     /**
      * @Route("/", name="index")
      */
-    public function index(UsersRepository $usersRepository, ProductRepository $productRepository)
+    public function index(UsersRepository $usersRepository, ProductRepository $productRepository): Response
     {
         return $this->render('index/index.html.twig', [
             'users' => $usersRepository->findAll(),

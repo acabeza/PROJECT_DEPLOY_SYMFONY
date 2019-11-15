@@ -15,6 +15,7 @@ svg {
   position: fixed;
   top: 10px;
   left: 180px;
+  z-index: -5;
 }
 
 .container {
@@ -184,3 +185,5 @@ h3 {
       width: auto;
       top:auto;
       font-size: 30px;}
+
+.button{width: auto; height: auto;}
