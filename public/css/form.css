@@ -1,0 +1,26 @@
+.labelForm1 {font-size: 30px; font-family: cursive; color: #ff5722;}
+.custom_inputForm {width: 400px; height: 50px; font-size: 20px;}
+.customForm { position: fixed; top:20%; left: 20%; width: auto; height: auto;}
+.custom_inputFormChoices{width: 250px; height: 50px; font-size: 20px;}
+
+input {
+    display: block;
+    border: none;
+  }
+input::placeholder {
+    -webkit-transform: translateY(0px);
+    transform: translateY(0px);
+    -webkit-transition: .5s;
+    transition: .5s;
+  }
+input:hover, input:focus, input:active:focus {
+    color: #ff5722;
+    outline: none;
+    border-bottom: 1px solid #ff5722;
+  }
+input:hover::placeholder, input:focus::placeholder, input:active:focus::placeholder {
+    color: #ff5722;
+    position: relative;
+    -webkit-transform: translateY(-20px);
+    transform: translateY(-20px);
+  }

@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html>
-        
+
     <head>
         {% block head %}
 
-            <title>{% block title %}{% endblock title %}</title>
+            <title>{% block title %}{% endblock %}</title>
             <link rel="stylesheet" type="text/css" href="{{ asset('css/index.css') }}"/>
-            {% block stylesheets %}{% endblock stylesheets %}
-            {% block javaScript %}{% endblock javaScript %}
+            <link rel="stylesheet" type="text/css" href="{{ asset('css/form.css') }}"/>
+            {% block stylesheets %}{% endblock %}
+            {% block javaScript %}{% endblock %}
 
         {% endblock head %}
     </head>

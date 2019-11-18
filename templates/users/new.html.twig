@@ -1,11 +1,13 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Nuevo Usuario{% endblock %}
-
+{% block stylesheets %}  <link rel="stylesheet" type="text/css" href="{{ asset('css/form.css') }}"/> {% endblock stylesheets %}
 {% block body %}
+<div class="container">
     <h1>Crea el nuevo usuario</h1>
 
     {{ include('users/_form.html.twig') }}
 
     <a href="{{ path('index') }}">Volver</a>
+</div>
 {% endblock %}

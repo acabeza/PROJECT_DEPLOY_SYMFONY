@@ -36,19 +36,19 @@ class Product
         return $this->nameProduct;
     }
 
+    public function getRefProduct(): ?string
+    {
+        return $this->ref_product;
+    }
+
     public function setNameProduct(string $nameProduct): self
     {
         $this->nameProduct = $nameProduct;
 
         return $this;
     }
-
-    public function getRefProduct(): ?string
-    {
-        return $this->ref_product;
-    }
-
-    public function setRefProduct(?string $ref_product): self
+    
+    public function setRefProduct(string $ref_product): self
     {
         $this->ref_product = $ref_product;
 

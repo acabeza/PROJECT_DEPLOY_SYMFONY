@@ -49,32 +49,7 @@ h2 {
   color: #1a1919;
 }
 
-input {
-  display: block;
-  height: 55px;
-  width: 90%;
-  margin: 0 auto;
-  border: none;
-}
-input::placeholder {
-  -webkit-transform: translateY(0px);
-  transform: translateY(0px);
-  -webkit-transition: .5s;
-  transition: .5s;
-}
-input:hover, input:focus, input:active:focus {
-  color: #ff5722;
-  outline: none;
-  border-bottom: 1px solid #ff5722;
-}
-input:hover::placeholder, input:focus::placeholder, input:active:focus::placeholder {
-  color: #ff5722;
-  position: relative;
-  -webkit-transform: translateY(-20px);
-  transform: translateY(-20px);
-}
-
-.email,
+/* .email,
 .pwd {
   position: relative;
   z-index: 1;
@@ -85,7 +60,7 @@ input:hover::placeholder, input:focus::placeholder, input:active:focus::placehol
   font-weight: lighter;
   -webkit-transition: .5s;
   transition: .5s;
-}
+} */
 
 .link {
   text-decoration: none;

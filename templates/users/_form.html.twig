@@ -1,7 +1,6 @@
-{{ form_start(form) }}
+{{ form_start(form, {'attr' : {'class' : 'customForm'}}) }}
 
 {{ form(form) }}
-    <button class="button">{{ button_label|default('Save') }}</button>
 {{ form_end(form) }}
 {# <form name="users" method="post" action="{{ path('users_new') }}">
         <table>
