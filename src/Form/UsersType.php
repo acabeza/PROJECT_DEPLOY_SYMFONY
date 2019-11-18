@@ -44,7 +44,6 @@ class UsersType extends AbstractType
             ])
             ->add('ref_product', EntityType::class, [
                 'attr' => [
-                    'placeholder' => 'Añada la referencia del producto',
                     'class' => 'custom_inputFormChoices'
                 ],
                 'label' => 'Referencia Producto',
@@ -57,7 +56,7 @@ class UsersType extends AbstractType
                                        ->orderby("product.ref_product", "ASC");         
                 },
                 'choice_value' => function (Product $product = null) {
-                    return $product ? $product->getRefProduct() : 'No hay Productos';
+                    return $product ? $product->getRefProduct() : '';
                 },
                 'choice_label' => 'ref_product'
             ])

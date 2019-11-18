@@ -48,7 +48,7 @@ class Product
         return $this;
     }
     
-    public function setRefProduct(string $ref_product): self
+    public function setRefProduct(String $ref_product): self
     {
         $this->ref_product = $ref_product;
 
