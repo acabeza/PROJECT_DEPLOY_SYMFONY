@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use App\Entity\Product;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UsersRepository")
@@ -80,7 +81,7 @@ class Users
         return $this->ref_product;
     }
 
-    public function setRefProduct(string $ref_product): self
+    public function setRefProduct(Product $ref_product): self
     {
         $this->ref_product = $ref_product;
 

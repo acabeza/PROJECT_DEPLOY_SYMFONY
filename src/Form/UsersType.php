@@ -11,6 +11,7 @@ use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Form\CallbackTransformer;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use App\Form\ProductType;
 use App\Repository\ProductRepository;
@@ -32,6 +33,7 @@ class UsersType extends AbstractType
                     'class' => 'labelForm1'
                 ]
                 ])
+
             ->add('surname', TextType::class, [
                 'attr' => [
                     'placeholder' => 'Añada el apellido',
@@ -42,7 +44,12 @@ class UsersType extends AbstractType
                     'class' => 'labelForm1'
                 ]
             ])
+
             ->add('ref_product', EntityType::class, [
+                'class' => Product::class,
+                'choice_label' => function (Product $product) {
+                    return $product->getRefProduct();
+               },
                 'attr' => [
                     'class' => 'custom_inputFormChoices'
                 ],
@@ -50,16 +57,18 @@ class UsersType extends AbstractType
                 'label_attr' => [
                     'class' => 'labelForm1'
                 ],
-                'class' => Product::class,
-                'query_builder' => function (ProductRepository $product) {
-                        return $product->createQueryBuilder("product")
-                                       ->orderby("product.ref_product", "ASC");         
-                },
-                'choice_value' => function (Product $product = null) {
+                'empty_data' => '',
+                
+                // 'query_builder' => function (ProductRepository $product) {
+                //         return $product->createQueryBuilder("product")
+                //                        ->orderby("product.ref_product", "ASC");         
+                // }
+               'choice_value' => function (Product $product = null) {
                     return $product ? $product->getRefProduct() : '';
-                },
-                'choice_label' => 'ref_product'
+                 }
+                
             ])
+
             ->add('city', TextType::class, [
                 'attr' => [
                     'placeholder' => 'Añada tu ciudad',
@@ -70,6 +79,7 @@ class UsersType extends AbstractType
                     'class' => 'labelForm1'
                 ]
             ])
+
             ->add('cp', IntegerType::class, [
                 'attr' => [
                     'placeholder' => 'Añada el codigo postal',
@@ -80,6 +90,7 @@ class UsersType extends AbstractType
                     'class' => 'labelForm1'
                 ]
             ])
+
             ->add('email', EmailType::class, [
                 'attr' => [
                     'placeholder' => 'Añada el correo',
@@ -90,6 +101,7 @@ class UsersType extends AbstractType
                     'class' => 'labelForm1'
                 ]
             ])
+
             ->add('submit', SubmitType::class, [
                 'attr' => [
                     'placeholder' => 'Crear',
