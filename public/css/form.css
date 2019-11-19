@@ -1,12 +1,14 @@
 .labelForm1 {font-size: 30px; font-family: cursive; color: #ff5722;}
 .custom_inputForm {width: 400px; height: 50px; font-size: 20px;}
-.customForm { position: fixed; top:20%; left: 20%; width: auto; height: auto;}
+.customForm { position: fixed; top:12.5%; left: 30%; width: 500px; height: auto;}
 .custom_inputFormChoices{width: 250px; height: 50px; font-size: 20px;}
-
+.container2{top:5%; left: 5%; position: fixed;}
+.submit{ height: 50px; width: 200px; margin-top:10px;}
 input {
     display: block;
     border: none;
   }
+
 input::placeholder {
     -webkit-transform: translateY(0px);
     transform: translateY(0px);
@@ -21,6 +23,6 @@ input:hover, input:focus, input:active:focus {
 input:hover::placeholder, input:focus::placeholder, input:active:focus::placeholder {
     color: #ff5722;
     position: relative;
-    -webkit-transform: translateY(-20px);
-    transform: translateY(-20px);
+    -webkit-transform: translateY(-15px);
+    transform: translateY(-15px);
   }

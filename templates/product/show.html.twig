@@ -3,28 +3,20 @@
 {% block title %}Product{% endblock %}
 
 {% block body %}
-    <h1>Product</h1>
-
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
+    <h2> Productos </h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID<th>NOMBRE DEL PRODUCTO</th><th>REFERENCIA DEL PRODUCTO</th><th>EDITAR</th><th>ELIMINAR</th>
+                    </tr>
+                </thead>
+                <tr>
                 <td>{{ product.id }}</td>
-            </tr>
-            <tr>
-                <th>NameProduct</th>
                 <td>{{ product.nameProduct }}</td>
-            </tr>
-            <tr>
-                <th>Ref_product</th>
-                <td>{{ product.refProduct }}</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <a href="{{ path('product_index') }}">back to list</a>
-
-    <a href="{{ path('product_edit', {'id': product.id}) }}">edit</a>
-
-    {{ include('product/_delete_form.html.twig') }}
+                <td>{{ product.refproduct }}</td>              
+                <td><a href="{{ path('product_edit', {'id': product.id}) }}" class="ico_link">&#128393;</a></td>
+                <td><a href="{{ path('product_delete', {'id': product.id}) }}" class="ico_link">&#10008;</a></td>
+                </tr>
+            </table>
+     <a href="{{ path('index') }}" style="font-size:50px; top:90%; position:fixed;">Volver a la lista</a>
 {% endblock %}
