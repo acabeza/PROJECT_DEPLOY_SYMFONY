@@ -3,9 +3,11 @@
 {% block title %}Editar Producto{% endblock %}
 
 {% block body %}
+<div class="container2">
     <h1>Edite el producto</h1>
 
     {{ include('product/_form.html.twig', {'button_label': 'Update'}) }}
     
 <a href="{{ path('index') }}" style="font-size:50px; top:90%; position:fixed;">Volver a la lista</a>
+</div>
 {% endblock %}

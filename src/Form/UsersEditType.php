@@ -77,10 +77,9 @@ class UsersEditType extends AbstractType
             ]
         ])
 
-        ->add('submit', SubmitType::class, [
+        ->add('Editar', SubmitType::class, [
             'attr' => [
-                'value' => 'Crear',
-                'placeholder' => 'crear',
+                'placeholder' => 'Editar',
                 'class' => 'submit'
             ]
         ])

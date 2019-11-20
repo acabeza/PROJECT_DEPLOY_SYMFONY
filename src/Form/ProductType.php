@@ -35,7 +35,7 @@ class ProductType extends AbstractType
                     'class' => 'labelForm1'
                 ]
             ])
-            ->add('submit', SubmitType::class, [
+            ->add('Crear', SubmitType::class, [
                 'attr' => [
                     'placeholder' => 'Crear',
                     'class' => 'submit'

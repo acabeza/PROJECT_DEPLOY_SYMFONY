@@ -1,9 +1,9 @@
-.labelForm1 {font-size: 30px; font-family: cursive; color: #ff5722;}
-.custom_inputForm {width: 400px; height: 50px; font-size: 20px;}
+.labelForm1 {font-size: 30px; font-family: cursive; color: black}
+.custom_inputForm {width: 400px; height: 50px; font-size: 20px; border-radius: 10px 10px 10px 10px;}
 .customForm { position: fixed; top:12.5%; left: 30%; width: 500px; height: auto;}
-.custom_inputFormChoices{width: 250px; height: 50px; font-size: 20px;}
+.custom_inputFormChoices{width: 250px; height: 50px; font-size: 20px; border-radius: 10px 10px 10px 10px;}
 .container2{top:5%; left: 5%; position: fixed;}
-.submit{ height: 50px; width: 200px; margin-top:10px;}
+.submit{ height: 60px; width: 400px; margin-top:10px; font-size: 45px;}
 input {
     display: block;
     border: none;
