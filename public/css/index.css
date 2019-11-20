@@ -49,18 +49,6 @@ h2 {
   color: #1a1919;
 }
 
-/* .email,
-.pwd {
-  position: relative;
-  z-index: 1;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  padding-left: 20px;
-  font-family: 'Open Sans', sans-serif;
-  color: #858585;
-  font-weight: lighter;
-  -webkit-transition: .5s;
-  transition: .5s;
-} */
 
 .link {
   text-decoration: none;
@@ -153,7 +141,7 @@ h3 {
 .ico_link { font-size: 20px;}
 
 .add {border: 2px solid black;
-  background-color: cadetblue;
+      background-color: cadetblue;
       text-align: center;
       padding-left: 12px;
       padding-right: 13px;
@@ -162,3 +150,4 @@ h3 {
       font-size: 30px;}
 
 .button{width: auto; height: auto;}
+.ursBack{font-size:35px; top:90%; position:fixed;}

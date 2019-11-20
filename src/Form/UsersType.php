@@ -58,11 +58,6 @@ class UsersType extends AbstractType
                     'class' => 'labelForm1'
                 ],
                 'empty_data' => '',
-                
-                // 'query_builder' => function (ProductRepository $product) {
-                //         return $product->createQueryBuilder("product")
-                //                        ->orderby("product.ref_product", "ASC");         
-                // }
                'choice_value' => function (Product $product = null) {
                     return $product ? $product->getRefProduct() : '';
                  }

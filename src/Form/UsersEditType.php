@@ -43,7 +43,6 @@ class UsersEditType extends AbstractType
                 'class' => 'labelForm1'
             ]
         ])
-
         ->add('city', TextType::class, [
             'attr' => [
                 'placeholder' => 'Añada tu ciudad',
