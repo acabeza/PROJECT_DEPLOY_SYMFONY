@@ -1,19 +1,22 @@
 pipeline {
     agent { 
-            docker {
-                image 'composer:latest'} 
-            } 
+            docker { {image 'composer:latest'} } 
     stages{
         stage('Prepare build') {
-           echo 'init build proyect'
-           composer install
-           echo 'final build proyect'
+          steps{
+              sh 'init build proyect'
+              composer install
+              sh 'final build proyect'
+          } 
+           
         }
 
         stage('Prepare Test'){
-            echo 'init test proyect'
-            php bin/phpunit
-            echo 'final test proyect'
+            steps{
+                sh 'init test proyect'
+                php bin/phpunit
+                sh 'final test proyect'
+            }
         }
     }
 }
