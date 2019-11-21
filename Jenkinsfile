@@ -3,7 +3,7 @@ pipeline {
     stages{
         stage('Prepare build') {
           steps{
-              sh 'cd PROJECT_DEPLOY_SYMFONY'
+              sh 'cd /SYMFONY_PROJECT_DEV'
               sh 'composer install'
               sh 'echo final build proyect'
           } 
