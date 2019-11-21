@@ -1,13 +1,19 @@
 pipeline {
     agent { 
             docker {
-                image 'composer:latest'
-                args "--volume /tmp:/app --volume /etc/passwd:/etc/passwd:ro --volume /etc/group:/etc/group:ro -u 1000"
-                    } 
+                image 'composer:latest'} 
             } 
     stages{
-        stage('Prepare') {
-           
+        stage('Prepare build') {
+           echo 'init build proyect'
+           composer install
+           echo 'final build proyect'
+        }
+
+        stage('Prepare Test'){
+            echo 'init test proyect'
+            php bin/phpunit
+            echo 'final test proyect'
         }
     }
 }
