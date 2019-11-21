@@ -3,18 +3,18 @@ pipeline {
     stages{
         stage('Prepare build') {
           steps{
-              sh 'init build proyect'
-              composer install
-              sh 'final build proyect'
+              sh 'cd SYMFONY_PROJECT_DEV'
+              sh 'composer install'
+              sh 'echo final build proyect'
           } 
            
         }
 
         stage('Prepare Test'){
             steps{
-                sh 'init test proyect'
-                php bin/phpunit
-                sh 'final test proyect'
+                sh 'echo init test proyect'
+                sh 'php bin/phpunit'
+                sh 'echo final test proyect'
             }
         }
     }
