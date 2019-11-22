@@ -12,7 +12,7 @@ class CrudProductTest extends WebTestCase
     private $edit = "/product/1/edit";
     private $create = "/product/new";
     private $delete = "/product/1/delete";
-    private $show = "/product/5";
+    private $show = "/product/5"; 
 
     public function testIndex()
     {
