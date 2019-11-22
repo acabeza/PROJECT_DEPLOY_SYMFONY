@@ -37,7 +37,7 @@ class CrudProductTest extends WebTestCase
     //       $link = $crawler->filter('a')->last()->link();
     //       $crawler = $client->click($link);
     //       $form = $crawler->filter('form')->form();
-    //       $form['product[nameProduct]'] = 'Manopla';
+    //       $form['product[nameProduct]'] = 'newProduct';
     //       $form['product[ref_product]'] = '#1111';
     //       $crawler = $client->submit($form);
     //  }
