@@ -1,9 +1,7 @@
 pipeline {
     agent { 
             docker {
-                sh 'cd composer'
-                sh 'docker-compose up'
-                sh 'cd ..'
+                docker-compose up
                 } 
             } 
     stages{
