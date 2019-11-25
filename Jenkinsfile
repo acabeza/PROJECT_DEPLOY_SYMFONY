@@ -1,8 +1,10 @@
 pipeline {
     agent { 
             docker {
-                image 'composer:latest'
-                    } 
+                sh 'cd composer'
+                sh 'docker-compose up'
+                sh 'cd ..'
+                } 
             } 
     stages{
         stage('Prepare build') {
