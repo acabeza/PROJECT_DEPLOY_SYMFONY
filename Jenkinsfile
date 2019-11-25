@@ -2,7 +2,6 @@ pipeline {
     agent { 
             docker {
                 image 'composer:latest'
-                args "--volume /tmp:/app --volume /etc/passwd:/etc/passwd:ro --volume /etc/group:/etc/group:ro -u 1000"
                     } 
             } 
     stages{
@@ -10,15 +9,26 @@ pipeline {
           steps{
               sh 'composer install'
               sh 'echo final build proyect'
-          } 
-           
+            }    
         }
-
+        stage('Run Test Server'){
+            steps{
+                sh 'echo Iniciando Server Local'
+                sh 'php bin/console server:run'
+            }
+        }
         stage('Prepare Test'){
             steps{
-                sh 'echo init test proyect'
+                sh 'echo Preparando Test de CRUD'
                 sh 'php bin/phpunit'
-                sh 'echo final test proyect'
+                sh 'echo Finalización de Test de CRUD'
+            }
+        }
+        stage('Stop Test Server'){
+            steps{
+                sh 'echo Parando Servidor Local'
+                sh 'php bin/console server:stop'
+                sh 'echo Finalizando Servidor'
             }
         }
     }
