@@ -97,10 +97,10 @@ class UsersType extends AbstractType
                 ]
             ])
 
-            ->add('Crear', SubmitType::class, [
+            ->add('crear', SubmitType::class, [
                 'attr' => [
-                    'placeholder' => 'crear',
-                    'class' => 'submit'
+                    'class' => 'submit',
+                    'value' => 'Crear'
                 ]
             ])
 
