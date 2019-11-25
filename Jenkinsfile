@@ -14,7 +14,7 @@ pipeline {
         stage('Prepare Test'){
             steps{
                 sh 'echo Preparando Test de CRUD'
-                sh 'php bin/phpunit'
+                sh 'php bin/phpunit --filter CrudTest'
                 sh 'echo Finalización de Test de CRUD'
             }
         }
