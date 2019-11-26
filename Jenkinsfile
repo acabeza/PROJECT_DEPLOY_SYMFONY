@@ -2,7 +2,8 @@ pipeline {
     agent {
         docker {
             image 'composer:latest'
-            image 'mysql:latest MYSQL_ROOT_PASSWORD=root '
+            image 'mysql'
+            args '-e MYSQL_ROOT_PASSWORD=root '
         }
     }
     stages{
