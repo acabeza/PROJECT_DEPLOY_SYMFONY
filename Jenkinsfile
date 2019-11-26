@@ -34,5 +34,4 @@ pipeline {
                 sh 'echo Server Parado'
             }
         }
-    }
 }
