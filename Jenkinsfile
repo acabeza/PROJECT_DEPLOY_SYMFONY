@@ -17,9 +17,11 @@ pipeline {
             }    
         }
         stage('Run Server Test'){
+            steps{
             sh 'echo Iniciando Server'
             sh 'symfony -d server:start'
             sh 'echo Server iniciado'
+            }
         }
         stage('Prepare Test'){
             steps{
