@@ -2,23 +2,27 @@ pipeline {
     agent none 
         stages {
             stage("Back-end"){
-                steps{
+                
                     agent {
                         docker {
                             image 'mysql:latest'
                             args '-e MYSQL_ROOT_PASSWORD=root'
                         }
                     }
-                }
+                    steps {
+                        sh 'mysql --version'
+                    }
             }
             stage("Composer install"){
-                steps{
+                
                     agent {
                         docker {
                             image 'composer:latest'
                         }
                     }
-                }
+                    steps {
+                             sh 'composer --version'
+                    }
             } 
 
             stage('Prepare build') {
