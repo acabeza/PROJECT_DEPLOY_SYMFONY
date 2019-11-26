@@ -6,6 +6,7 @@ pipeline {
             args '-e MYSQL_ROOT_PASSWORD=root '
         }
     }
+    stages{
         stage('Prepare build') {
           steps{
               sh 'echo Costruyendo Proyecto'
@@ -34,4 +35,5 @@ pipeline {
                 sh 'echo Server Parado'
             }
         }
+    }
 }
