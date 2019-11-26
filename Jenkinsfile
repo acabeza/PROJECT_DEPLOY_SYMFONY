@@ -1,5 +1,5 @@
 pipeline {
-    agent none {
+    agent none 
         stages {
             stage("Back-end"){
                 agent {
@@ -17,7 +17,6 @@ pipeline {
                 }
             } 
         }
-    }
     stages{
         stage('Prepare build') {
           steps{
