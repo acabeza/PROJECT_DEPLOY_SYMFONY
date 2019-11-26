@@ -6,15 +6,6 @@ pipeline {
             args '-e MYSQL_ROOT_PASSWORD=root '
         }
     }
-    stages{
-
-        // stage('Prepare build compose') {
-        //   steps{
-        //       sh 'docker-compose up'
-        //       sh 'echo final build compose'
-        //     }    
-        // }
-
         stage('Prepare build') {
           steps{
               sh 'echo Costruyendo Proyecto'
