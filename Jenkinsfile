@@ -1,35 +1,17 @@
 pipeline {
-    agent any 
+    agent {
+        docker {
+            image 'composer:latest'
+        }
+    }
         stages {
-            stage("Back-end"){
-                    agent {
-                        docker {
-                            image 'mysql:latest'
-                            args '-e MYSQL_ROOT_PASSWORD=root -e MYSQL_ROOT_USER=root'
-                        }
-                    }
-                    steps {
-                        sh 'mysql --version'
-                    }
-            }
-            stage("Composer install"){
-                
-                    agent {
-                        docker {
-                            image 'composer:latest'
-                        }
-                    }
-                    steps {
-                             sh 'composer --version'
-                    }
-            } 
 
             stage('Prepare build') {
-            steps{
-                sh 'echo Costruyendo Proyecto'
-                sh 'composer install'
-                sh 'echo Proyecto Construido'
-                }    
+                steps{
+                    sh 'echo Costruyendo Proyecto'
+                    sh 'composer install'
+                    sh 'echo Proyecto Construido'
+                    }    
             }
 
             stage('Run Server Test'){
@@ -41,6 +23,12 @@ pipeline {
             }
 
             stage('Prepare Test'){
+                agent {
+                        docker {
+                            image 'mysql:latest'
+                            args '-e MYSQL_ROOT_PASSWORD=root -e MYSQL_ROOT_USER=root'
+                        }
+                    }
                 steps{
                     sh 'echo Preparando Test de CRUD'
                     sh 'php bin/phpunit --filter CrudTest'
