@@ -31,6 +31,7 @@ pipeline {
                         }
                     }
                 steps{
+                    //sh 'php bin/console doctrine:database:import bd/db_symfony.sql'
                     sh 'echo Preparando Test de CRUD'
                     sh 'php bin/phpunit --filter CrudTest'
                     sh 'echo Finalización de Test de CRUD'
