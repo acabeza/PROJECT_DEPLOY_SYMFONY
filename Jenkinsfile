@@ -27,7 +27,7 @@ pipeline {
                 agent {
                         docker {
                             image 'mysql:latest'
-                            args '-e MYSQL_ROOT_PASSWORD=root -e MYSQL_ROOT_USER=root'
+                            args '--name mysql -e MYSQL_ROOT_PASSWORD=root -d'
                         }
                     }
                 steps{
