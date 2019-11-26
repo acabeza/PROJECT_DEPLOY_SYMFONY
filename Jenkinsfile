@@ -7,6 +7,7 @@ pipeline {
             image 'mysql:latest'
             args ' MYSQL_ROOT_PASSWORD=root '
         }
+    }
     stages{
 
         // stage('Prepare build compose') {
