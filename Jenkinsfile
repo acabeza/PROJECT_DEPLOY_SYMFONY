@@ -1,13 +1,15 @@
 pipeline {
-    agent any
+    agent docker {
+        image 'composer:latest'
+        image 'mysql:latest MYSQL_ROOT_PASSWORD=root '}
     stages{
 
-        stage('Prepare build compose') {
-          steps{
-              sh 'docker-compose up'
-              sh 'echo final build compose'
-            }    
-        }
+        // stage('Prepare build compose') {
+        //   steps{
+        //       sh 'docker-compose up'
+        //       sh 'echo final build compose'
+        //     }    
+        // }
 
         stage('Prepare build') {
           steps{
