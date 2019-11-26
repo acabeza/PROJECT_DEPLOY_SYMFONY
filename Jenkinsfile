@@ -14,13 +14,13 @@ pipeline {
                     }    
             }
 
-            stage('Run Server Test'){
-                steps{
-                    sh 'echo Iniciando Server'
-                    sh 'symfony -d server:start'
-                    sh 'echo Server iniciado'
-                }
-            }
+            // stage('Run Server Test'){
+            //     steps{
+            //         sh 'echo Iniciando Server'
+            //         sh 'symfony -d server:start'
+            //         sh 'echo Server iniciado'
+            //     }
+            // }
 
             stage('Prepare Test'){
                 agent {
@@ -36,12 +36,12 @@ pipeline {
                 }
             }
 
-            stage('Stop Server'){
-                steps{
-                    sh 'echo Parando Server'
-                    sh 'symfony server:stop'
-                    sh 'echo Server Parado'
-                }
-            }
+            // stage('Stop Server'){
+            //     steps{
+            //         sh 'echo Parando Server'
+            //         sh 'symfony server:stop'
+            //         sh 'echo Server Parado'
+            //     }
+            // }
     }
 }
