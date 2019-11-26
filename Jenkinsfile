@@ -17,7 +17,7 @@ pipeline {
             stage('Run Server Test'){
                 steps{
                 sh 'echo Iniciando Server'
-                sh 'symfony.exe -d server:start'
+                bat 'symfony.exe -d server:start'
                 sh 'echo Server iniciado'
                 }
             }
@@ -39,7 +39,7 @@ pipeline {
             stage('Stop Server'){
                 steps{
                     sh 'echo Parando Server'
-                    sh 'symfony.exe server:stop'
+                    bat 'symfony.exe server:stop'
                     sh 'echo Server Parado'
                 }
             }
