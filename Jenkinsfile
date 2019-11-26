@@ -1,6 +1,7 @@
 pipeline {
     agent any
     stages{
+
         stage('Prepare build compose') {
           steps{
               sh 'docker-compose up'
@@ -10,7 +11,7 @@ pipeline {
 
         stage('Prepare build') {
           steps{
-              sh 'Costruyendo Proyecto'
+              sh 'echo Costruyendo Proyecto'
               sh 'composer install'
               sh 'echo Proyecto Construido'
             }    
