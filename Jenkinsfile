@@ -1,5 +1,5 @@
 pipeline {
-    agent docker {}
+    agent any {}
     stages{
         stage('Prepare build compose') {
           steps{
@@ -10,15 +10,28 @@ pipeline {
 
         stage('Prepare build') {
           steps{
+              sh 'Costruyendo Proyecto'
               sh 'composer install'
-              sh 'echo final build proyect'
+              sh 'echo Proyecto Construido'
             }    
+        }
+        stage('Run Server Test'){
+            sh 'echo Iniciando Server'
+            sh 'symfony -d server:start'
+            sh 'echo Server iniciado'
         }
         stage('Prepare Test'){
             steps{
                 sh 'echo Preparando Test de CRUD'
                 sh 'php bin/phpunit --filter CrudTest'
                 sh 'echo Finalización de Test de CRUD'
+            }
+        }
+        stage('Stop Server'){
+            steps{
+                sh 'echo Parando Server'
+                sh 'symfony server:stop'
+                sh 'echo Server Parado'
             }
         }
     }
