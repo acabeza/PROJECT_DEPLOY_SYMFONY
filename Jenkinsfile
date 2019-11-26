@@ -1,12 +1,11 @@
 pipeline {
-    agent none 
+    agent any 
         stages {
             stage("Back-end"){
-                
                     agent {
                         docker {
                             image 'mysql:latest'
-                            args '-e MYSQL_ROOT_PASSWORD=root'
+                            args '-e MYSQL_ROOT_PASSWORD=root -e MYSQL_ROOT_USER=root'
                         }
                     }
                     steps {
