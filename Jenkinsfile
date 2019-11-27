@@ -12,11 +12,11 @@ pipeline {
                     }    
             }
 
-            stage('test env'){
-                steps{
-                    sh 'export $(cat .env | xargs) && composer install --optimize-autoloader'
-                }
-            }
+            // stage('test env'){
+            //     steps{
+            //         sh 'export $(cat .env | xargs) && composer install --optimize-autoloader'
+            //     }
+            // }
             // stage('Prepare Database'){
             //     steps{
             //         sh 'echo Construyendo la Base de datos'
