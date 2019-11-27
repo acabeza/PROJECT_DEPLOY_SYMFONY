@@ -14,7 +14,7 @@ pipeline {
 
             stage('test env'){
                 steps{
-                    sh 'export $(cat .env | xargs) && composer install --optimize-autoloader'
+                    sh 'export $(cat .env.local | xargs) && composer install --optimize-autoloader'
                 }
             }
             // stage('Prepare Database'){
