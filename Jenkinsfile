@@ -14,6 +14,7 @@ pipeline {
 
             stage('test env'){
                 steps{
+                    sh 'ls'
                     sh 'export $(cat .env/env_vars | xargs) && composer install --optimize-autoloader'
                 }
             }
