@@ -13,7 +13,7 @@ doctrine:
             collate: utf8mb4_unicode_ci
 
         # url: '%env(resolve:DATABASE_URL)%'
-        url: mysql:3306//root:root@mysql:3306/db_symfony
+        url: mysql://root:root@mysql:3306/db_symfony;
     orm:
         auto_generate_proxy_classes: true
         naming_strategy: doctrine.orm.naming_strategy.underscore
