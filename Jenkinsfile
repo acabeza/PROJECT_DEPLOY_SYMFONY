@@ -21,7 +21,7 @@ pipeline {
              stage('Prepare Database'){
                  steps{
                     sh 'echo Construyendo la Base de datos'
-                    sh 'php bin/console doctrine:database:create'
+                    sh 'php bin/console doctrine:database:create --connection'
                     sh 'echo Creando Entidades en Base de datos'
                     sh 'php bin/console doctrine:migrations:migrate'
                     sh 'echo Creando datos de en las Base de datos '
