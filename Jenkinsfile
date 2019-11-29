@@ -2,7 +2,7 @@ pipeline {
     agent any
     stages{
         stage("Prepare composer"){
-            step([$class: 'DockerComposeBuilder', dockerComposeFile: 'docker-compose.yml',
+            steps([$class: 'DockerComposeBuilder', dockerComposeFile: 'docker-compose.yml',
              option: [$class: 'StartAllServices'], useCustomDockerComposeFile: true])
         }
     }
