@@ -3,7 +3,6 @@ pipeline {
         docker {
             alwaysPull true
             image 'composer:latest'
-            label 'composer-label'
         }}
     stages{
         stage("Prepare composer"){
