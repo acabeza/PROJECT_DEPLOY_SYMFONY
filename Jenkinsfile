@@ -1,14 +1,9 @@
 pipeline {
-    agent { 
-        docker {
-             image 'mysql:latest'
-             args '--name mysql-jenkins -e MYSQL_ROOT_PASSWORD=root -p 3306:3306'
-                 }}
+    agent any
     stages{
-        stage("Prepare Build"){
-            steps{
-                sh 'composer install'
-            }
+        stage("Prepare composer"){
+            step([$class: 'DockerComposeBuilder', dockerComposeFile: 'docker-compose.yml',
+             option: [$class: 'StartAllServices'], useCustomDockerComposeFile: true])
         }
     }
 }
