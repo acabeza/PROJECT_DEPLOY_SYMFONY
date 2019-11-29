@@ -3,8 +3,7 @@ pipeline {
     stages{
         stage("Prepare composer"){
             steps{
-                step([$class: 'DockerComposeBuilder', dockerComposeFile: 'docker-compose',
-             option: [$class: 'StartAllServices'], useCustomDockerComposeFile: true])
+                step([$class: 'DockerComposeBuilder', dockerComposeFile: 'docker-compose.yml', option: [$class: 'StartService', scale: 1, service: 'compose'], useCustomDockerComposeFile: true])
              }
         }
     }
