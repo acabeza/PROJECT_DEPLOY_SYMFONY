@@ -1,5 +1,5 @@
 pipeline {
-        agent{docker { image 'composer:latest'}}
+        agent{ docker { image 'composer:latest'}, docker {image 'mysql:lastest' args '--name mysql -e MYSQL_ROOT_PASSWORD=root -p 3306:3306'}}
         stages {
             stage('Prepare build') {
                 steps{
@@ -16,7 +16,7 @@ pipeline {
             //      }
             //  }
             stage('Prepare Database'){
-                agent{ docker {image 'mysql:lastest' args '--name mysql -e MYSQL_ROOT_PASSWORD=root -p 3306:3306'} }
+                // agent{ docker {image 'mysql:lastest' args '--name mysql -e MYSQL_ROOT_PASSWORD=root -p 3306:3306'} }
                 steps{
                      sh 'echo Construyendo la Base de datos'
                      sh 'php bin/console doctrine:database:create --if-not-exists'
