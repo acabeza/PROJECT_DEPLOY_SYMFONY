@@ -3,8 +3,8 @@ pipeline {
     stages{
         stage("Prepare composer"){
             steps{
-                step([$class: 'DockerComposeBuilder', dockerComposeFile: '',
-                 option: [$class: 'StartAllServices'], useCustomDockerComposeFile: true])
+                step([$class: 'DockerBuilderPublisher', cleanImages: false, cleanupWithJenkinsJobDelete: false, cloud: '', dockerFileDirectory: '',
+                 fromRegistry: [], pushCredentialsId: '', pushOnSuccess: true, tagsString: 'composer'])
 
                 sh 'composer --version'
              }
