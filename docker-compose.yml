@@ -5,10 +5,10 @@ services:
       image: composer:latest
   mysql:
       image: mysql:latest
-      command: --default-authentication-plugin=mysql_native_password
+      environment: MYSQL_ROOT_PASSWORD=root
       volumes:
       - mysql:/var/lib/mysql
-      container_name: mysql
+      container_name: mysql-jenkins
       environment:
         MYSQL_ROOT_PASSWORD: root
       ports:
