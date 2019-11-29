@@ -6,13 +6,8 @@ pipeline {
                  }}
     stages{
         stage("Prepare Build"){
-            agent{
-              docker {
-                   image 'composer:latest'
-                    }
-            }
             steps{
-                sh 'echo Hola'
+                sh 'composer install'
             }
         }
     }
