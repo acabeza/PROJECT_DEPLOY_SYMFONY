@@ -7,7 +7,7 @@ pipeline {
     stages{
         stage("Prepare Build"){
             agent{
-              docker { image 'composer:latest' }
+              docker { image 'composer' }
             }
             steps{
                 sh 'echo Hola'
