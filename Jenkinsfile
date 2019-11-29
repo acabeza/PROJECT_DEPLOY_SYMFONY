@@ -3,7 +3,8 @@ pipeline {
             docker { image 'composer:latest'}
         }
         stages {
-
+            docker run  some-mysql -e MYSQL_ROOT_PASSWORD=my-secret-pw -d mysql:tag
+            agent{ docker {image 'mysql:lastest' args '--name mysql -e MYSQL_ROOT_PASSWORD=root -p 3306:3306'} }
             stage('Prepare build') {
                 steps{
                     sh 'echo Costruyendo Proyecto'
