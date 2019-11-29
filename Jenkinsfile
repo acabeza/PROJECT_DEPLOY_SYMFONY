@@ -7,9 +7,7 @@ pipeline {
     stages{
         stage("Prepare composer"){
             steps{
-                    dockerNode(image: 'mysql:latest') {
-                        // some block
-                    }
+                    sh 'docker run --name mysql-jenkins -e MYSQL_ROOT_PASSWORD=root -p 3306:3306 mysql:lastest'
              }
         }
     }
