@@ -5,9 +5,9 @@ pipeline {
             image 'composer:latest'
         }}
     stages{
-        stage("Prepare composer"){
+        stage("Dios salveme"){
             steps{
-                    sh 'docker run --name mysql-jenkins -e MYSQL_ROOT_PASSWORD=root -p 3306:3306 mysql:lastest'
+                    step([$class: 'DockerBuilderPublisher', cleanImages: false, cleanupWithJenkinsJobDelete: false, cloud: '', dockerFileDirectory: '', fromRegistry: [], pull: true, pushCredentialsId: '92b5cf58-0208-4e9d-9b2f-3db7a2aa452e', pushOnSuccess: false, tagsString: 'composer'])
              }
         }
     }
