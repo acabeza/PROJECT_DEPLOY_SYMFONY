@@ -5,7 +5,12 @@ pipeline {
             agent{
                 docker {
                  image 'mysql:lastest'
-                 args '--name mysql -e MYSQL_ROOT_PASSWORD=root -p 3306:3306'}
+                 args '--name mysql -e MYSQL_ROOT_PASSWORD=root -p 3306:3306',
+                 image 'composer:latest'
+                 }
+            }
+            steps{
+
             }
         }
     }
