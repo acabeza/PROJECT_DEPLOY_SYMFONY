@@ -7,7 +7,7 @@ pipeline {
     stages{
         stage("Prepare composer"){
             steps{
-                    dockerNode(image: 'mysql:latest', sideContainers: ['-e MYSQL_ROOT_PASSWORD=root -p 3306:3306']) {
+                    dockerNode(image: 'mysql:latest', sideContainers: ['composer:latest']) {
                         // some block
                     }
              }
