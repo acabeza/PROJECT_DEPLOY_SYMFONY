@@ -1,7 +1,8 @@
 pipeline {
-        agent {
-            docker { image 'composer:latest'}
-        }
+         agent none 
+        //{
+        //     docker { image 'composer:latest'}
+        // }
         stages {
             stage('Prepare build') {
                 steps{
@@ -17,9 +18,9 @@ pipeline {
             //          sh 'export $(cat .env | grep -v "#" | xargs) && composer install --optimize-autoloader'
             //      }
             //  }
-              stage('Prepare Database'){
-                  agent{ docker {image 'mysql:lastest' args '--name mysql -e MYSQL_ROOT_PASSWORD=root -p 3306:3306'} }
-                  steps{
+            stage('Prepare Database'){
+                agent{ docker {image 'mysql:lastest' args '--name mysql -e MYSQL_ROOT_PASSWORD=root -p 3306:3306'} }
+                steps{
                      sh 'echo Construyendo la Base de datos'
                      sh 'php bin/console doctrine:database:create --if-not-exists'
                      sh 'echo Creando Entidades en Base de datos'
@@ -29,7 +30,7 @@ pipeline {
                      sh 'echo Fin de la Construcción de la Base de datos'
 
                  }
-                 steps('Prepare Test'){
+                 steps{
                     //sh 'php bin/console doctrine:database:import bd/db_symfony.sql'
                     sh 'echo Preparando Test de CRUD'
                     sh 'php bin/phpunit --filter CrudTest'
