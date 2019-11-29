@@ -3,7 +3,6 @@ pipeline {
             docker { image 'composer:latest'}
         }
         stages {
-            agent{ docker {image 'mysql:lastest' args '--name mysql -e MYSQL_ROOT_PASSWORD=root -p 3306:3306'} }
             stage('Prepare build') {
                 steps{
                     sh 'echo Costruyendo Proyecto'
@@ -12,13 +11,14 @@ pipeline {
                     }
             }
 
-             stage('test env'){
-                 steps{
-                     sh 'ls'
-                     sh 'export $(cat .env | grep -v "#" | xargs) && composer install --optimize-autoloader'
-                 }
-             }
+            //  stage('test env'){
+            //      steps{
+            //          sh 'ls'
+            //          sh 'export $(cat .env | grep -v "#" | xargs) && composer install --optimize-autoloader'
+            //      }
+            //  }
               stage('Prepare Database'){
+                  agent{ docker {image 'mysql:lastest' args '--name mysql -e MYSQL_ROOT_PASSWORD=root -p 3306:3306'} }
                   steps{
                      sh 'echo Construyendo la Base de datos'
                      sh 'php bin/console doctrine:database:create --if-not-exists'
@@ -29,14 +29,20 @@ pipeline {
                      sh 'echo Fin de la Construcción de la Base de datos'
 
                  }
-              }
-            stage('Prepare Test'){
-                steps{
+                 steps('Prepare Test'){
                     //sh 'php bin/console doctrine:database:import bd/db_symfony.sql'
                     sh 'echo Preparando Test de CRUD'
                     sh 'php bin/phpunit --filter CrudTest'
                     sh 'echo Finalización de Test de CRUD'
                 }
-            }
+              }
+            // stage('Prepare Test'){
+            //     steps{
+            //         //sh 'php bin/console doctrine:database:import bd/db_symfony.sql'
+            //         sh 'echo Preparando Test de CRUD'
+            //         sh 'php bin/phpunit --filter CrudTest'
+            //         sh 'echo Finalización de Test de CRUD'
+            //     }
+            // }
     }
 }
