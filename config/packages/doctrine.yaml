@@ -3,7 +3,7 @@ doctrine:
         # configure these for your database server
         # use postgresql for PostgreSQL
         # use sqlite for SQLite
-        driver: 'pdo_mysql'
+        driver: ' MySQL'
         server_version: '5.7'
 
 

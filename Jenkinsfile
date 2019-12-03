@@ -12,7 +12,6 @@ pipeline {
         }
         stage("database"){
             steps{
-                sql connection: 'database'
                 sh 'php bin/console doctrine:database:create   '
             }
         }
