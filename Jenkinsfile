@@ -6,6 +6,12 @@ pipeline {
     //     }
     // }
     stages{
+        stage("stop container"){
+            steps{
+                sh 'docker stop mysql'
+                sh 'docker stop composer'
+            }
+           }
         stage("remove container"){
             steps{
                 sh 'docker rm mysql'
