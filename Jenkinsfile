@@ -32,16 +32,13 @@ pipeline {
                     image 'composer:latest'
                 }
             }
-            step{
+            steps{
                 sh 'composer install'
-            }
-            step{
                 sh 'php bin/console doctrine:database:create'
                 sh 'php bin/console doctrine:migrations:migrate'
-            }
-            step{
                 sh 'php bin/phpunit --filter CrudTest'
             }
+
         }
 
     }
