@@ -8,7 +8,7 @@ pipeline {
     stages{
         stage("build"){
             steps{
-                    sh 'docker run -n mysql -e  MYSQL_ROOT_PASSWORD=root -p 3306:3306  -p  8080 mysql:latest'
+                    sh 'docker run --name mysql -e  MYSQL_ROOT_PASSWORD=root -p 3306:3306  -p  8080 mysql:latest'
                     sh 'docker run composer:latest'
                     sh 'composer install'
              }
