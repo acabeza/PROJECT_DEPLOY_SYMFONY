@@ -26,7 +26,7 @@ pipeline {
             sleep(60)
             }
         }
-        stage("build proyect"){
+        stage("build proyect, create database, exec test"){
             agent{
                 docker {
                     image 'composer:latest'
@@ -35,10 +35,12 @@ pipeline {
             steps{
                 sh 'composer install'
             }
-        }
-        stage("database"){
             steps{
                 sh 'php bin/console doctrine:database:create'
+                sh 'php bin/console doctrine:migrations:migrate'
+            }
+            steps{
+                sh 'php bin/phpunit --filter CrudTest'
             }
         }
 
