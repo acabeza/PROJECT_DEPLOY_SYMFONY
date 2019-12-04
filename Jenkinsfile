@@ -18,7 +18,7 @@ pipeline {
            }
         stage("build container"){
             steps{
-                    sh 'docker run --name mysql -v /my/custom:/etc/mysql/conf.d -e MYSQL_ROOT_PASSWORD=root -p 33060:3306 -d mysql:latest'
+                    sh 'docker run --tag mysql -e MYSQL_ROOT_PASSWORD=root -p 33060:3306 -d mysql:latest'
              }
         }
         stage("wait"){
