@@ -9,15 +9,20 @@ pipeline {
         stage("remove container"){
             steps{
                 sh 'docker rm mysql'
-                // sh 'docker rm composer'
+                sh 'docker rm composer'
             }
            }
-        stage("build"){
+        stage("build container"){
             steps{
                     sh 'docker run --name mysql -d -e  MYSQL_ROOT_PASSWORD=root -p 3306:3306  -p  8080 mysql:latest'
-                    sh 'docker run --name composer composer:latest'
-                    sh 'composer install'
+                    sh 'docker run --name composer -d composer:latest'
              }
+        }
+        stage("wait"){
+            sleep(200)
+        }
+        stage("build proyect"){
+            sh 'composer install'
         }
         stage("database"){
             steps{
