@@ -7,8 +7,10 @@ pipeline {
     // }
     stages{
         stage("remove container"){
+            steps{
                 sh 'docker rm mysql'
                 // sh 'docker rm composer'
+            }
            }
         stage("build"){
             steps{
