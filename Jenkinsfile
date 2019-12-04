@@ -18,7 +18,7 @@ pipeline {
            }
         stage("build container"){
             steps{
-                    sh 'docker run --name mysql -d -e  MYSQL_ROOT_PASSWORD=root -p 3306:3306  -p  8080 mysql:latest'
+                    sh 'docker run --name mysql -d -e  MYSQL_ROOT_USER=root -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=db_symfony  -p 3306:3306 mysql:latest'
              }
         }
         stage("wait"){
@@ -40,6 +40,5 @@ pipeline {
             }
 
         }
-
     }
 }
