@@ -19,10 +19,14 @@ pipeline {
              }
         }
         stage("wait"){
+            steps{
             sleep(200)
+            }
         }
         stage("build proyect"){
+            steps{
             sh 'composer install'
+            }
         }
         stage("database"){
             steps{
