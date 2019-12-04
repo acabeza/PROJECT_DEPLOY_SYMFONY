@@ -10,7 +10,7 @@ pipeline {
             steps{
                 sh 'docker stop mysql'
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-                    sh "exit 1"
+                    sh "exit 0"
                 }
             }
            }
@@ -18,7 +18,7 @@ pipeline {
             steps{
                 sh 'docker rm mysql'
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-                    sh "exit 1"
+                    sh "exit 0"
                 }
             }
         }
