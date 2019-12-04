@@ -12,7 +12,7 @@ pipeline {
         }
         stage("database"){
             steps{
-                sh 'php bin/console doctrine:database:create   '
+                sh 'php bin/console doctrine:database:create'
             }
         }
     }
