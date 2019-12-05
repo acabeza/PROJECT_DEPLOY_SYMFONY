@@ -16,12 +16,6 @@ pipeline {
         //         sh 'docker rm mysql'
         //     }
         // }
-        stage("php?"){
-            steps{
-             sh 'docker run php:latest'
-             sh 'php -version'
-             }
-        }
         stage("build container"){
             steps{
                     sh 'docker run tag mysql -e MYSQL_ROOT_PASSWORD=root -p 3306:3306 -d mysql:latest'
@@ -35,7 +29,7 @@ pipeline {
         stage("build proyect, create database, exec test"){
             agent{
                 docker {
-                    image 'composer:latest'
+                    image 'juliangut/phpdev:fpm-latest'
                 }
             }
             steps{
