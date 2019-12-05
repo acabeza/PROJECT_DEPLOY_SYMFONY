@@ -33,6 +33,7 @@ pipeline {
                 }
             }
             steps{
+                sh 'apt-get install php7.3-zip'
                 sh 'composer install'
                 sh 'php bin/console doctrine:database:create'
                 sh 'php bin/console doctrine:migrations:migrate'
