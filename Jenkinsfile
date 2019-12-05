@@ -1,11 +1,10 @@
 pipeline {
-     agent
-    {
-         docker {
-             image 'mysql:latest'
-             args '--name mysql2 -e MYSQL_ROOT_PASSWORD=root -p 3306:3306'
-         }
-     }
+            agent {
+                docker {
+                    args '--name mysql2 -e MYSQL_ROOT_PASSWORD=root -p 3306:3306'
+                    image 'mysql:latest'
+                }
+        }
     stages{
         stage("build proyect, create database, exec test"){
             steps{
