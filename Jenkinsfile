@@ -18,6 +18,7 @@ pipeline {
         // }
         stage("php?"){
             steps{
+             sh 'docker run php:latest'
              sh 'php -version'
              }
         }
