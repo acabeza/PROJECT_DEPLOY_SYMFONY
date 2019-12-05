@@ -6,16 +6,16 @@ pipeline {
     //     }
     // }
     stages{
-        // stage("stop container"){
-        //     steps{
-        //         sh 'docker stop mysql'
-        //     }
-        //    }
-        // stage("remove container"){
-        //     steps{
-        //         sh 'docker rm mysql'
-        //     }
-        // }
+         stage("stop container"){
+             steps{
+                sh 'docker stop mysql'
+            }
+            }
+         stage("remove container"){
+             steps{
+                 sh 'docker rm mysql'
+            }
+         }
         stage("build container"){
             steps{
                     sh 'docker run --name mysql -e MYSQL_ROOT_PASSWORD=root -p 3306:3306 -d mysql:latest'
