@@ -9,22 +9,16 @@ pipeline {
         stage("stop container"){
             steps{
                 sh 'docker stop mysql'
-                catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-                    sh "exit 0"
-                }
             }
            }
         stage("remove container"){
             steps{
                 sh 'docker rm mysql'
-                catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-                    sh "exit 0"
-                }
             }
         }
         stage("build container"){
             steps{
-                    sh 'docker run tag mysql -e MYSQL_ROOT_PASSWORD=root -p 33060:3306 -d mysql:latest'
+                    sh 'docker run tag mysql -e MYSQL_ROOT_PASSWORD=root -p 3306:3306 -d mysql:latest'
              }
         }
         stage("wait"){
