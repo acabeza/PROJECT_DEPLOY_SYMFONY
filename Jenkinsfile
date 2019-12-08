@@ -8,7 +8,7 @@ pipeline {
     stages{
         stage("build proyect, create database, exec test"){
             steps{
-                sh 'composer install'
+                 'composer install'
                 sh 'php bin/console doctrine:database:create'
                 sh 'php bin/console doctrine:migrations:migrate'
                 sh 'php bin/phpunit --filter CrudTest'
