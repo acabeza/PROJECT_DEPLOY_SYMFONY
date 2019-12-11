@@ -26,7 +26,9 @@
             <directory>src</directory>
         </whitelist>
     </filter>
-
+    <extensions>
+        <extension class="Symfony\Component\Panther\ServerExtension" />
+    </extensions>
     <listeners>
         <listener class="Symfony\Bridge\PhpUnit\SymfonyTestsListener" />
     </listeners>

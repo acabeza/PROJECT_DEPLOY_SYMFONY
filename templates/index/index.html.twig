@@ -7,7 +7,7 @@
 {% block body %}
     <div class="container">
             <h2> Usuarios</h2>
-            <table>
+            <table class="users">
                 <thead>
                     <tr>
                         <th>ID</th><th>NOMBRE</th><th>APELLIDOS</th><th>CP</th><th>CIUDAD</th><th>EMAIL</th><th>REFERENCIA DEL PRODUCTO</th><th>MOSTRAR</th><th>EDITAR</th><th>Eliminar</th>
@@ -22,9 +22,9 @@
                 <td>{{ user.city }}</td>
                 <td>{{ user.email }}</td>
                 <td>{{ user.refProduct }}</td>
-                <td><a href="{{ path('users_show', {'id': user.id}) }}" class="ico_link">&#128065;</a></td>
-                <td><a href="{{ path('users_edit', {'id': user.id}) }}" class="ico_link">&#128393;</a></td>
-                <td><a href="{{ path('users_delete', {'id': user.id}) }}" class="ico_link">&#10008;</a></td>
+                <td><a href="{{ path('users_show', {'id': user.id}) }}" class="showUsers">&#128065;</a></td>
+                <td><a href="{{ path('users_edit', {'id': user.id}) }}" class="editUsers">&#128393;</a></td>
+                <td><a href="{{ path('users_delete', {'id': user.id}) }}" class="deleteUsers">&#10008;</a></td>
             </tr>
             {% else %}
                 <tr>
@@ -32,10 +32,10 @@
                 </tr>
             {% endfor %}
             </table>
-            <span class="add"><a href="{{ path('users_new')}}">+</a></span>
+            <span class="add"><a href="{{ path('users_new')}}" class="createUsers">+</a></span>
             
             <h2> Productos </h2>
-            <table>
+            <table class="product">
                 <thead>
                     <tr>
                         <th>ID<th>NOMBRE DEL PRODUCTO</th><th>REFERENCIA DEL PRODUCTO</th><th>MOSTRAR</th><th>EDITAR</th><th>ELIMINAR</th>
@@ -46,9 +46,9 @@
                 <td>{{ product.id }}</td>
                 <td>{{ product.nameProduct }}</td>
                 <td>{{ product.refproduct }}</td>              
-                <td><a href="{{ path('product_show', {'id': product.id}) }}" class="ico_link">&#128065;</a></td>
-                <td><a href="{{ path('product_edit', {'id': product.id}) }}" class="ico_link">&#128393;</a></td>
-                <td><a href="{{ path('product_delete', {'id': product.id}) }}" class="ico_link">&#10008;</a></td>
+                <td><a href="{{ path('product_show', {'id': product.id}) }}" class="showProduct">&#128065;</a></td>
+                <td><a href="{{ path('product_edit', {'id': product.id}) }}" class="editProduct">&#128393;</a></td>
+                <td><a href="{{ path('product_delete', {'id': product.id}) }}" class="deleteProduct">&#10008;</a></td>
                 </tr>
                 {% else %}
                     <tr>
@@ -56,6 +56,6 @@
                     </tr>
                 {% endfor %}
             </table> 
-            <span class="add"><a href="{{ path('product_new')}}">+</a></span>
+            <span class="add"><a href="{{ path('product_new')}}" class="createProduct">+</a></span>
     </div>
 {% endblock %}

@@ -24,10 +24,10 @@ class ProductEditType extends AbstractType
             ]
 
         ])
-        ->add('Editar', SubmitType::class, [
+        ->add('editar', SubmitType::class, [
             'attr' => [
-                'placeholder' => 'editar',
-                'class' => 'submit'
+                'class' => 'submit',
+                'value' => 'Editar'
             ]
         ])
         ;
